@@ -11,7 +11,7 @@ import { createGoal } from "../http/create-goal";
 import { useQueryClient } from "@tanstack/react-query";
 
 const createGoalForm = z.object({
-  title: z.string().min(1, "Informe a atividade que deseja realizar"),
+  title: z.string().min(1, "Enter the activity you want to perform"),
   desiredWeeklyFrequency: z.coerce.number().min(1).max(7),
 });
 
@@ -41,27 +41,27 @@ export function CreateGoal() {
       <div className="flex flex-col gap-6 h-full">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <DialogTitle>Cadastrar meta</DialogTitle>
+            <DialogTitle>Register goal</DialogTitle>
             <DialogClose>
               <X className="size-5 text-zinc-600" />
             </DialogClose>
           </div>
 
           <DialogDescription>
-            Adicione atividades que te fazem bem e que você quer continuar praticando toda semana.
+            Add activities that make you feel good and that you want to continue practicing every week.
           </DialogDescription>
         </div>
 
         <form onSubmit={handleSubmit(handleCreateGoal)} className="flex flex-col justify-between flex-1">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-              <Label htmlFor="title">Qual a atividade?</Label>
-              <Input id="title" autoFocus placeholder="Praticar exercícios, meditar, etc..." {...register("title")} />
+              <Label htmlFor="title">What is the activity?</Label>
+              <Input id="title" autoFocus placeholder="Exercise, meditate, etc..." {...register("title")} />
 
               {formState.errors.title && <span className="text-red-400 text-sm">{formState.errors.title.message}</span>}
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="title">Quantas vezes na semana?</Label>
+              <Label htmlFor="title">How many times a week?</Label>
               <Controller
                 control={control}
                 name="desiredWeeklyFrequency"
@@ -71,43 +71,43 @@ export function CreateGoal() {
                     <RadioGroup onValueChange={field.onChange} value={String(field.value)}>
                       <RadioGroupItem value="1">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">1x na semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">1x a week</span>
                         <span className="text-lg leading-none">🥱</span>
                       </RadioGroupItem>
 
                       <RadioGroupItem value="2">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">2x na semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">2x a week</span>
                         <span className="text-lg leading-none">🙂</span>
                       </RadioGroupItem>
 
                       <RadioGroupItem value="3">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">3x na semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">3x a week</span>
                         <span className="text-lg leading-none">😎</span>
                       </RadioGroupItem>
 
                       <RadioGroupItem value="4">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">4x na semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">4x a week</span>
                         <span className="text-lg leading-none">😜</span>
                       </RadioGroupItem>
 
                       <RadioGroupItem value="5">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">5x na semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">5x a week</span>
                         <span className="text-lg leading-none">🤨</span>
                       </RadioGroupItem>
 
                       <RadioGroupItem value="6">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">6x na semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">6x a week</span>
                         <span className="text-lg leading-none">🤯</span>
                       </RadioGroupItem>
 
                       <RadioGroupItem value="7">
                         <RadioGroupIndicator />
-                        <span className="text-zinc-300 text-sm font-medium leading-none">Todos os dias da semana</span>
+                        <span className="text-zinc-300 text-sm font-medium leading-none">Every day of the week</span>
                         <span className="text-lg leading-none">🔥</span>
                       </RadioGroupItem>
                     </RadioGroup>
@@ -120,10 +120,10 @@ export function CreateGoal() {
           <div className="flex items-center gap-3">
             <DialogClose asChild>
               <Button variant="secondary" className="flex-1">
-                Fechar
+                Close
               </Button>
             </DialogClose>
-            <Button className="flex-1">Salvar</Button>
+            <Button className="flex-1">Save</Button>
           </div>
         </form>
       </div>
