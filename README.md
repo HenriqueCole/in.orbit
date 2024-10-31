@@ -1,4 +1,8 @@
-<h1 align="center">In.orbit</h1>
+<p align="center">
+  <img src="web/src/assets/logo-in-orbit.svg" alt="In.orbit Logo" width="150"/>
+</p>
+
+---
 
 <p align="center">
   <samp>A powerful checklist application to help users set goals, track progress, and celebrate achievements.</samp>
